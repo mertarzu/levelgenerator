@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class LavaTile : PooledObject, IPassable
+{
+    bool isTaken;
+    bool isPassible = false;
+    public override bool IsPooledObjectTaken => isTaken;
+    public bool IsPassable => isPassible;
+
+    public override void Dismiss()
+    {
+        gameObject.SetActive(false);
+        isTaken = false;
+    }
+
+    public override void SetActive()
+    {
+        gameObject.SetActive(true);
+        isTaken = true;
+    }
+
+    public override void Navigate(Vector3 pos)
+    {
+        transform.position = pos;
+        SetActive();
+    }
+
+}
