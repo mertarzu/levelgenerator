@@ -20,7 +20,8 @@ public class LevelGenerator : MonoBehaviour
     void GetLevel() 
     {
         objectpoolers.Release();
-        for (int x = 0; x < width; x++)
+        int initialX = -5;
+        for (int x = initialX; x < width+initialX+1; x++)
         {
             for(int z = 0; z < height; z++)
             {
